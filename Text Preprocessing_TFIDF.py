@@ -285,3 +285,50 @@ df.to_csv(file_path, index=False)
 data = pd.read_csv('/content/drive/MyDrive/Skripsi/Program Skripsi/Hasil/labellingfix.csv')
 
 data
+
+"""# TFIDF
+
+"""
+
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.preprocessing import normalize
+
+# Memuat data
+data = pd.read_csv('/content/drive/MyDrive/Skripsi/Program Skripsi/Hasil/labellingfix.csv')
+column = "text_prepro"
+
+# Mengganti nilai NaN dengan string kosong
+data[column] = data[column].fillna('')
+
+# Membuat objek CountVectorizer dan TfidfVectorizer
+count_vectorizer = CountVectorizer()
+tfidf_vectorizer = TfidfVectorizer()
+
+# Transformasi teks dengan CountVectorizer
+TF_vector = count_vectorizer.fit_transform(data[column])
+normalized_tf_vector = normalize(TF_vector, norm='l1', axis=1)
+
+# Transformasi teks dengan TfidfVectorizer
+tfs = tfidf_vectorizer.fit_transform(data[column])
+IDF_vector = tfidf_vectorizer.idf_
+
+# Mengalikan matriks TF yang sudah dinormalisasi dengan IDF
+tfidf_mat = normalized_tf_vector.multiply(IDF_vector).toarray()
+
+# Mengubah hasil menjadi DataFrame
+df_tfidf = pd.DataFrame(tfidf_mat, columns=tfidf_vectorizer.get_feature_names_out())
+
+# Menampilkan DataFrame TF-IDF
+df_tfidf
+
+data = df_tfidf
+
+data = pd.DataFrame(data)
+
+file_path = '/content/drive/MyDrive/Skripsi/Program Skripsi/Hasil/tfidf.csv'
+
+# Simpan DataFrame ke dalam file CSV
+data.to_csv(file_path, index=False)
+
+data

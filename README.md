@@ -1,20 +1,29 @@
-# 🏦 Sentiment Analysis of Bareksa App Reviews
-Repository ini berisi proyek analisis sentimen ulasan aplikasi Bareksa menggunakan pendekatan Lexicon-Based, Seleksi Fitur Chi-Square, dan Support Vector Machine (SVM) dengan SMOTE.
+# 📌 Deskripsi
 
-## 📌 Deskripsi
 Proyek ini bertujuan untuk menganalisis sentimen pengguna terhadap aplikasi Bareksa dengan memanfaatkan data ulasan dari Google Play Store. Metode yang digunakan dalam penelitian ini meliputi:
 
-Lexicon-Based Approach untuk mendapatkan sentimen awal dari teks ulasan.
+    💾 Scraping Data: Mengambil data ulasan aplikasi Bareksa dari Google Play Store.
 
-Chi-Square Feature Selection untuk memilih fitur yang paling berpengaruh dalam meningkatkan performa model.
+    🔧 Preprocessing Data: Melakukan beberapa langkah preprocessing seperti:
 
-Support Vector Machine (SVM) sebagai model klasifikasi utama.
+        ✂️ Menghapus karakter khusus dan angka
 
-SMOTE (Synthetic Minority Over-sampling Technique) untuk mengatasi ketidakseimbangan kelas dalam data.
+        🔡 Mengubah teks menjadi huruf kecil
+
+        ✂️ Tokenisasi dan stopword removal
+
+        🔄 Stemming atau lemmatization
+
+    🏷️ Labelling dengan VADER Lexicon: Menggunakan pendekatan Lexicon-Based dengan VADER untuk memberikan label sentimen awal terhadap teks ulasan.
+
+    🔢 Chi-Square Feature Selection: Memilih fitur yang paling berpengaruh dalam meningkatkan performa model.
+
+    🤖 Support Vector Machine (SVM): Digunakan sebagai model klasifikasi utama.
+
+    📈 SMOTE (Synthetic Minority Over-sampling Technique): Digunakan untuk mengatasi ketidakseimbangan kelas dalam data.
 
 ## 📊 Hasil Eksperimen
-Pada Penelitian ini diharapkan akurasi yang cukup baik dalam penggunaan metode support vectior Machine
-
+Pada penelitian ini diharapkan akurasi yang cukup baik dalam penggunaan metode Support Vector Machine.
 
 
 ## 🔧 Teknologi yang Digunakan
